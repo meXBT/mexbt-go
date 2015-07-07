@@ -83,7 +83,7 @@ type createOrderRequest struct {
 
 type withdrawRequest struct {
 	signedRequest
-	Amount        float64 `json:"amount"`
+	Amount        float64 `json:"amount,string"`
 	SendToAddress string  `json:"sendToAdress"`
 }
 
