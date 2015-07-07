@@ -476,3 +476,17 @@ func (c *Config) Withdraw(ins string, amount float64, address string) (*Result, 
 	err := genericRequest("private/withdraw", &request, &result)
 	return &result, err
 }
+
+// Get address by currency name
+func (r *DepositAddressesResult) Get(name string) (address string, found bool) {
+	for _, ad := range r.Addresses {
+		if ad.Name == name {
+			address = ad.DepositAddress
+			found = true
+			return
+		}
+	}
+
+	found = false
+	return
+}

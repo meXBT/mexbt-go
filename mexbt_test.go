@@ -64,6 +64,10 @@ func TestAccountTrades(t *testing.T) {
 func TestDepositAdresses(t *testing.T) {
 	r, e := config.DepositAddresses()
 	check(t, r.IsAccepted, e)
+
+	btc, found := r.Get("BTC")
+	fmt.Println("BTC balance", btc)
+	check(t, found, nil)
 }
 
 func TestAccountOrders(t *testing.T) {
